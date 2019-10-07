@@ -1,16 +1,13 @@
+const database = require("../database")
+
 // POST (CREATE)
-exports.post = (req, res, next) => {
-    res.status(201).send('Requisição recebida com sucesso!');
+exports.predict = (req, res, next) => {
+    database.exec("SELECT * FROM Beneficio1", res)
+    //res.status(201).send('Requisição recebida com sucesso!');
 };
 
 // PUT (UPDATE)
-exports.put = (req, res, next) => {
+exports.fit = (req, res, next) => {
     let id = req.params.id;
     res.status(201).send(`Requisição recebida com sucesso! ${id}`);
-};
-
-// DELETE (DELETE)
-exports.delete = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Requisição recebida com sucesso! ${id}`);
 };
